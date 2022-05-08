@@ -37,19 +37,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
-
-var day = new Date().getDate()
-var month = new Date().getMonth() + 1;
-var year = new Date().getFullYear();
-
-if(day < 10){
-day = "0" + day;
-}
-if(month < 10){
-    month = "0" + month;
-}
-    document.getElementById("date").innerText = day + "/" + month + "/" + year
-    
 var result = [<%-history%>];
 var days =  [<%-days%>];
 var xValues = [];
@@ -57,7 +44,8 @@ var xValues = [];
 for(var i = 0; i < days[0].length; i++){
   let x = days[0][i].split("-")[2] + "/" + days[0][i].split("-")[1] + "/" + days[0][i].split("-")[0]
   xValues.push(x)
-}
+} 
+document.getElementById("date").innerText = xValues[30]
   new Chart("data", {
   type: "line",
   data: {
